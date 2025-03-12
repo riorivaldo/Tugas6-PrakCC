@@ -16,7 +16,7 @@ Content-Type: application/json
 ###
 
 # PUT (Update) an existing note by ID
-PUT http://localhost:5000/edit-note/2
+PUT http://localhost:5000/edit-note/7
 Content-Type: application/json
 
 {
@@ -27,4 +27,4 @@ Content-Type: application/json
 ###
 
 # DELETE a note by ID
-DELETE http://localhost:5000/delete-note/2
+DELETE http://localhost:5000/delete-note/7
