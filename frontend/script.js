@@ -20,7 +20,7 @@ formulir.addEventListener("submit", (e) => {
   if (id == "") {
     // Tambah diary
     axios
-      .post("http://localhost:5000/add-note", { tanggal, isi })
+      .post(`${BASE_URL}/add-note`, { tanggal, isi })
       .then(() => {
         // Bersihkan form setelah submit
         elemen_tanggal.value = "";
@@ -33,7 +33,7 @@ formulir.addEventListener("submit", (e) => {
   } else {
     // Jika ada ID, lakukan PUT untuk memperbarui diary yang ada
     axios
-      .put(`http://localhost:5000/edit-note/${id}`, { tanggal, isi })
+      .put(`${BASE_URL}/edit-note/${id}`, { tanggal, isi })
       .then(() => {
         // Bersihkan form setelah submit
         elemen_tanggal.dataset.id = "";
@@ -50,7 +50,7 @@ formulir.addEventListener("submit", (e) => {
 // Fungsi untuk mengambil daftar diary (GET)
 async function getDiary() {
   try {
-    const { data } = await axios.get("http://localhost:5000/note");
+    const { data } = await axios.get(`${BASE_URL}/note`);
 
     const table = document.querySelector("#diary-list");
     let tampilan = "";
@@ -91,7 +91,7 @@ function hapusDiary() {
     btn.addEventListener("click", () => {
       const id = btn.dataset.id;
       axios
-        .delete(`http://localhost:5000/delete-note/${id}`)
+        .delete(`${BASE_URL}/delete-note/${id}`)
         .then(() => getDiary())  // Memuat ulang daftar diary setelah penghapusan
         .catch((error) => console.log(error));
     });
