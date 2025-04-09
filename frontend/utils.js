@@ -1,1 +1,1 @@
- const BASE_URL = "https://notes-be077-371739253078.us-central1.run.app/note";
+ const BASE_URL = "https://notes-be077-371739253078.us-central1.run.app";
